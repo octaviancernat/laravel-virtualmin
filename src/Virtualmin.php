@@ -16,7 +16,7 @@ class Virtualmin
     }
 
 
-    public function checkConnection()
+    public function checkConnection(): bool|string
     {
         $hostname = $this->config['hostname'];
         $username = $this->config['username'] ?? 'root';
@@ -38,8 +38,6 @@ class Virtualmin
         curl_setopt($ch, CURLOPT_TIMEOUT, 1800);
         curl_setopt($ch, CURLOPT_VERBOSE, empty($this->quiet));
 
-        $result = curl_exec($ch);
-
-        return $result;
+        return curl_exec($ch);
     }
 }

@@ -1,0 +1,7 @@
+/vendor/
+/workbench/
+.env
+phpunit.xml
+.phpunit.result.cache
+testbench.yaml
+tests
