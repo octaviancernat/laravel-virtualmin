@@ -22,7 +22,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "TheApp\\VirtualminServiceProvider"
+                "TheApp\\Virtualmin\\VirtualminServiceProvider"
             ],
             "aliases": {
                 "Virtualmin": "TheApp\\Virtualmin\\Facades\\VirtualminApi"
