@@ -8,9 +8,9 @@ class VirtualminServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->bind(Virtualmin::class, function () {
+        $this->app->bind('virtualmin', function () {
             return new Virtualmin(
-                config('virtualmin'),
+                config('services.virtualmin'),
             );
         });
     }
@@ -18,5 +18,6 @@ class VirtualminServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        //
     }
 }

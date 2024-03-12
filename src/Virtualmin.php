@@ -2,15 +2,13 @@
 
 namespace TheApp\Virtualmin;
 
-use Config;
-
 class Virtualmin
 {
 
-    private Config $config;
+    private array $config;
 
 
-    public function __construct(Config $config)
+    public function __construct(array $config)
     {
         $this->config = $config;
     }
@@ -29,14 +27,14 @@ class Virtualmin
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_PORT, $port);
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Authorization: Basic '.base64_encode($username.':'.$password),
+            'Authorization: Basic ' . base64_encode($username . ':' . $password),
         ]);
 
         curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_TIMEOUT, 1800);
-        curl_setopt($ch, CURLOPT_VERBOSE, empty($this->quiet));
+        curl_setopt($ch, CURLOPT_VERBOSE, true);
 
         return curl_exec($ch);
     }
